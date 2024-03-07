@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.nav{
+    position: sticky;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 1280px;
+    margin-bottom: 20px;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    background-color: rgb(255, 255, 255, 0.7);
+}
+.nav_but{
+    padding: 22px 5px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    border: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+    background-color: rgb(255, 105, 0, 0);
+}
+.nav_but:hover{
+    color: rgb(255, 105, 0);
+}
+.orange{
+    color: rgb(255, 105, 0);
+}
+.shopping{
+    color: white;
+    border: 0;
+    margin-right: 10px;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color:rgb(255, 105, 0)
+}
+main{
+    width: 1280px;
+}
+.item_container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 70px;
+}
+.name_category{
+    width: 100%;
+    margin: 10px;
+    font-size: 36px;
+}
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    padding: 10px;
+}
+.item_photo{
+    width: 80%;
+    transition: transform 1s;
+}
+.item_photo:hover{
+    transform: translateY(5%);
+}
+.name_item{
+    align-self: baseline;
+    margin-bottom: 10px;
+}
+.description_item{
+    color: rgb(92, 99, 112);
+    margin-bottom: 10px;
+    height: 72px;
+}
+.price{
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.goShopping{
+    border: 0;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color:rgb(255, 105, 0);
+    background-color: rgb(255, 240, 230);
+}
+
+@media screen and (max-width: 1280px){
+    main{
+        width: calc(100vw - 20px)
+    }
+    .nav{
+        width: calc(100vw - 20px)
+    }
+}
+@media screen and (max-width: 1080px){
+    .item{
+        width: 33.33%;
+    }
+}
+@media screen and (max-width: 815px){
+    .item{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 550px){
+    .item{
+        width: 80%;
+    }
+    .item_container{
+        justify-content: center;
+    }
+}
