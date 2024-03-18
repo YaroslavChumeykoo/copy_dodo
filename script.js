@@ -8,6 +8,7 @@ const but_dessert = document.querySelector('#dessert')
 const but_sauces = document.querySelector('#sauces')
 const but_other_goods = document.querySelector('#other_goods')
 
+
 const breakfast = document.querySelector('.breakfast')
 const pizza = document.querySelector('.pizza')
 const combo = document.querySelector('.combo')
@@ -80,4 +81,75 @@ function clearButNav(){
     but_dessert.classList.remove('orange')
     but_sauces.classList.remove('orange')
     but_other_goods.classList.remove('orange')
+}
+const item = document.querySelectorAll('.item')
+const backround_info = document.querySelector('.backround_info')
+const close_info = document.querySelector('.close_info')
+const body = document.querySelector('body')
+
+item.forEach((element) =>{
+   element.addEventListener('click', () => UPmodalWindow(element))
+})
+
+close_info.addEventListener('click', ClosemodalWindow)
+backround_info.addEventListener("click", function (event) {
+   if (event.target === backround_info) {
+         ClosemodalWindow();
+      }})
+
+
+const info_item_container = document.querySelector('.info_item_container')
+
+function UPmodalWindow(item_render){
+   const info_photo = item_render.querySelector('.item_photo')
+   const info_name = item_render.querySelector('.name_item')
+   const info = item_render.querySelector('.description_item')
+   const price = item_render.querySelector('.price_value')
+   const massa = item_render.querySelector('.massa')
+   
+
+   const info_render = `<div class="info_item">
+   <img src="${info_photo.src}" class="info_photo" alt="item">
+   <div class="info_container">
+       <h3 class="info_name">${info_name.innerHTML}
+           <button class="info_but">
+               <img src="i.PNG" alt="i">
+           </button>
+       </h3>
+   <p class="massa">${massa.innerHTML}</p>
+   <p class="info">${info.innerHTML}</p>
+   <button class="info_goShopping">Добавить в корзину за <span>${price.innerHTML}</span></button>
+   </div>
+   </div>`
+   info_item_container.insertAdjacentHTML('afterbegin', info_render);
+   backround_info.classList.remove('none')
+   body.style.overflow = 'hidden'
+}
+function ClosemodalWindow(){
+   info_item_container.querySelector('.info_item').remove()
+   backround_info.classList.add('none')
+   body.style.overflow = 'auto'
+}
+
+const backround_basket = document.querySelector('.backround_basket')
+const shopping = document.querySelector('.shopping')
+const close_basket = document.querySelector('.close_basket')
+
+shopping.addEventListener('click',UPmodalWindowBasket)
+
+function UPmodalWindowBasket(){
+   backround_basket.classList.remove('none')
+   body.style.overflow = 'hidden'
+}
+
+close_basket.addEventListener('click', ClosemodalWindowBasket)
+
+backround_basket.addEventListener("click", function (event) {
+   if (event.target === backround_basket) {
+      ClosemodalWindowBasket();
+      }})
+
+function ClosemodalWindowBasket(){
+   backround_basket.classList.add('none')
+   body.style.overflow = 'auto'
 }
